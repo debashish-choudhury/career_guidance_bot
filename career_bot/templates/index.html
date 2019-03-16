@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chat</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" type="text/css" href="../static/style.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+      body{
+        overflow: hidden;
+      }
+      .card-header, .card-footer {
+        background-color: rgba(0,0,0,.5);
+      }
+      .bot-img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin-top: 10px;
+      }
+      #chatbox::-webkit-scrollbar {
+        width: 10px;
+      }
+      #chatbox::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+    </style>
+</head>
+<!--Coded With Love By Mutiullah Samim-->
+
+<body>
+  <div class="container-fluid h-100">
+    <div class="row justify-content-center h-100">
+      <div class="col-md-8 col-xl-6 chat" style="padding-left:50px; padding-right:50px; margin:10px; padding-bottom: 20px; height: 100%;">
+        <div class="card" style="height: 100%">
+          <div class="card-header msg_head">
+            <div class="d-flex bd-highlight" id="header-msg" style="align-content: center;">
+              <div class="img_cont">
+                <img class="bot-img" src="../static/logo.jpg">
+              </div>
+              <div class="user_info">
+                <span>Career Buddy</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-body msg_card_body" id="chatbox">
+            <div class="d-flex justify-content-start mb-4">
+              <div class="img_cont_msg">
+                <img src="../static/logo.jpg"
+                  class="rounded-circle user_img_msg">
+              </div>
+              <div class="msg_cotainer" id="botText">
+                  <span>
+                Hi, I am your career buddy.
+                      </span>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end mb-4">
+              
+            </div>
+            
+          </div>
+          <div class="card-footer">
+            <div class="input-group">
+              <div class="input-group-append">
+                <span class="input-group-text attach_btn"></span>
+              </div>
+              <input type="text" name="" class="form-control type_msg" id="textInput" style="background-color: rgba(0,0,0,.3);" placeholder="Type your message...">
+              <div class="input-group-append">
+                <span class="input-group-text send_btn" id="buttonInput"><i class="fas fa-location-arrow"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+      
+      
+<!--
+    <div class="container">
+      <div id="chatbox" style="background-color: aliceblue;">
+        <p class="botText"><span>Hi! Please tell me your name.</span></p>
+      </div>
+      <div id="userInput">
+        <input id="textInput" type="text" name="msg" placeholder="Message">
+        <input id="buttonInput" type="submit" value="Send">
+      </div>
+    </div>
+-->
+      <script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+            if(rawText === "" || rawText.trim() == ""){
+                alert("Please Enter some text.");
+            }
+            else{
+              var userHtml = '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + rawText + '</div><div class="img_cont_msg"><img src="../static/user.png" class="rounded-circle user_img_msg"></div></div>';
+              $("#textInput").val("");
+              $("#chatbox").append(userHtml);
+            $("#chatbox").stop().animate({ scrollTop: $("#chatbox")[0].scrollHeight}, 1000);
+//              document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+              $.get("/get", { msg: rawText }).done(function(data) {
+                var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="../static/logo.jpg" class="rounded-circle user_img_msg"></div><div class="msg_cotainer" id="botText"><span>' + data + '</span></div></div>';
+                $("#chatbox").append(botHtml);
+                $("#chatbox").stop().animate({ scrollTop: $("#chatbox")[0].scrollHeight}, 1000);
+//                document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+              });
+            }
+        }
+        $("#textInput").keypress(function(e) {
+            if(e.which == 13) {
+                getBotResponse();
+            }
+        });
+        $("#buttonInput").click(function() {
+          getBotResponse();
+        })
+      </script>
+  </body>
+</html>
