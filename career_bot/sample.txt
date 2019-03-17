@@ -1,0 +1,22 @@
+hi
+Hello, what can I help you with?
+colleges after 10th
+Sure! Any preferred field? Science, Commerce, Arts, Diploma?
+science
+Bhavan's College, St. Xavier’s College, Wilson College, Elphinstone College, Jai Hind College, Ramnarain Ruia College, SIES College of Arts, Science & Commerce, Kishinchand Chellaram College, Guru Nanak Khalsa College of Arts, Science & Commerce,  Sophia College for Women.
+what are the subjects?
+The main subjects are Physics(P), Chemistry(C), Maths(M), Bio(B). You can choose different combination of groups
+what are the groups?
+PCM, PCB, PCMB and also vocational courses. Do you want details of any of the above colleges? Choose one...
+ruia
+Ramnarain Ruia College is a co-ed college located in Matunga. It has a NAAC A+ accreditation. The percentage cut-off varies upwards from 90-91% as minimum.It has been approved as an autonomous college. ANY OTHER COLLEGE?
+sies
+SIES College of Arts, Science & Commerce is located in Sion. It has a NAAC A accrediatation. The percentage cut-off is from 88%.
+colleges after 10th
+Sure! Any preferred field? Science, Commerce, Arts, Diploma?
+commerce
+Here is a list of top Junior Colleges in Mumbai for commerce: R. A. Podar, Mithibai College, Narsee Monjee College of Commerce and Economics, H. R. College of Commerce and Economics, Sathye College, Mulund College of Commerce,Guru Nanak Khalsa College of Arts, Science & Commerce.
+what are the subjects?
+English, Accounts, Economics, Business Studies, Foundation Course, Maths, Statistics
+what are the future fields in commorce?
+B.Com, CA, CS, Law, Economics, BMS are some of the popular fields.
