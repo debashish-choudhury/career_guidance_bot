@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify, Response
 from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer,ListTrainer
+from chatterbot.trainers import ChatterBotCorpusTrainer, ListTrainer
 import json
 import os, uuid
 from datetime import datetime
@@ -30,7 +30,7 @@ trainer.train(sample_text)
 text_file = open("conversations.yml", "r")
 text = text_file.readlines()
 
-training_data = [s.replace('\n','') for s in text]
+training_data = [s.replace('\n', '') for s in text]
 trainer.train(training_data)
 
 
@@ -38,7 +38,7 @@ text_file = open("blocked.txt", "r")
 block = text_file.readlines()
 
 
-blocked = [s.replace('\n','') for s in block]
+blocked = [s.replace('\n', '') for s in block]
 
 
 
